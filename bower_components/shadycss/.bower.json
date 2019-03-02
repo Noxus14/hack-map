@@ -9,6 +9,6 @@
     "commit": "a2334b6610115b343500586b71db1c3b618031e3"
   },
   "_source": "https://github.com/webcomponents/shadycss.git",
-  "_target": "^v1.1.0",
-  "_originalSource": "webcomponents/shadycss"
+  "_target": "^1.0.5",
+  "_originalSource": "shadycss"
 }

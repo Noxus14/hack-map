@@ -9,31 +9,68 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-gl.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-heatmap-layer.html">
+<link rel="import" href="../bower_components/mapbox-gl/geojson-source.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
-  <template>
+    <template>
     <style include="shared-styles">
       :host {
         display: block;
-
         padding: 10px;
       }
+
+      mapbox-gl {
+        height: 400px;
+        width: 100%;
+      }
     </style>
-
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+    <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="40.66995747013945"
+      longitude="-103.59179687498357" zoom="3"></mapbox-gl>
+    <geojson-source cluster cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_parks_and_protected_lands_point.geojson"></geojson-source>
+    <mapbox-heatmap-layer map="[[map]]" layer-id="heatmap" source="geojsonsrc" radius="80" opacity="0.2" levels="[[levels]]"></mapbox-heatmap-layer>
   </template>
+    <script>
+        class MyView2 extends Polymer.Element {
+            static get is() {
+                return 'my-view2';
+            }
 
-  <script>
-    class MyView2 extends Polymer.Element {
-      static get is() { return 'my-view2'; }
-    }
+            static get properties() {
+                return {
+                    key: {
+                        type: String
+                    },
+                    levels: {
+                        type: Array
+                    },
+                }
+            }
 
-    window.customElements.define(MyView2.is, MyView2);
-  </script>
+            ready() {
+                super.ready()
+                this.key = 'pk.eyJ1Ijoibm94dXMiLCJhIjoiY2pzcnJ1NzV5MWxnNTN5cDFlM2gyZTJlZSJ9.lTK_f67yycxS072BGKQYaw'
+                this.levels = [{
+                    'count': 0,
+                    'color': '#EEEEEE',
+                    'radius': 2,
+                    'opacity': 0.5
+                }, {
+                    'count': 5,
+                    'radius': 80,
+                    'color': '#4CAF50'
+                }, {
+                    'count': 8,
+                    'color': '#FFC107'
+                }, {
+                    'count': 10,
+                    'color': '#F44336'
+                }]
+            }
+        }
+
+        window.customElements.define(MyView2.is, MyView2);
+    </script>
 </dom-module>
