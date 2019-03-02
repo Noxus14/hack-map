@@ -28,10 +28,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="lazy-import" href="my-view404.html">
 
 <dom-module id="my-app">
-  <template>
+    <template>
     <style>
       :host {
-        --app-primary-color: #4285f4;
+        --app-primary-color: #1a1642;
         --app-secondary-color: black;
 
         display: block;
@@ -86,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="[[rootPath]]view1">View One</a>
-          <a name="view2" href="[[rootPath]]view2">View Two</a>
+          <a name="view2" href="[[rootPath]]view2">Wep Map</a>
           <a name="view3" href="[[rootPath]]view3">View Three</a>
         </iron-selector>
       </app-drawer>
@@ -97,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header slot="header" condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>My App</div>
+            <div main-title>Map Application</div>
           </app-toolbar>
         </app-header>
 
@@ -115,61 +115,63 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </app-drawer-layout>
   </template>
 
-  <script>
-    // Gesture events like tap and track generated from touch will not be
-    // preventable, allowing for better scrolling performance.
-    Polymer.setPassiveTouchGestures(true);
+    <script>
+        // Gesture events like tap and track generated from touch will not be
+        // preventable, allowing for better scrolling performance.
+        Polymer.setPassiveTouchGestures(true);
 
-    class MyApp extends Polymer.Element {
-      static get is() { return 'my-app'; }
+        class MyApp extends Polymer.Element {
+            static get is() {
+                return 'my-app';
+            }
 
-      static get properties() {
-        return {
-          page: {
-            type: String,
-            reflectToAttribute: true,
-            observer: '_pageChanged',
-          },
-          routeData: Object,
-          subroute: Object,
-          // This shouldn't be neccessary, but the Analyzer isn't picking up
-          // Polymer.Element#rootPath
-          rootPath: String,
-        };
-      }
+            static get properties() {
+                return {
+                    page: {
+                        type: String,
+                        reflectToAttribute: true,
+                        observer: '_pageChanged',
+                    },
+                    routeData: Object,
+                    subroute: Object,
+                    // This shouldn't be neccessary, but the Analyzer isn't picking up
+                    // Polymer.Element#rootPath
+                    rootPath: String,
+                };
+            }
 
-      static get observers() {
-        return [
-          '_routePageChanged(routeData.page)',
-        ];
-      }
+            static get observers() {
+                return [
+                    '_routePageChanged(routeData.page)',
+                ];
+            }
 
-      _routePageChanged(page) {
-        // If no page was found in the route data, page will be an empty string.
-        // Default to 'view1' in that case.
-        this.page = page || 'view1';
+            _routePageChanged(page) {
+                // If no page was found in the route data, page will be an empty string.
+                // Default to 'view1' in that case.
+                this.page = page || 'view1';
 
-        // Close a non-persistent drawer when the page & route are changed.
-        if (!this.$.drawer.persistent) {
-          this.$.drawer.close();
+                // Close a non-persistent drawer when the page & route are changed.
+                if (!this.$.drawer.persistent) {
+                    this.$.drawer.close();
+                }
+            }
+
+            _pageChanged(page) {
+                // Load page import on demand. Show 404 page if fails
+                const resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+                Polymer.importHref(
+                    resolvedPageUrl,
+                    null,
+                    this._showPage404.bind(this),
+                    true);
+            }
+
+            _showPage404() {
+                this.page = 'view404';
+            }
         }
-      }
 
-      _pageChanged(page) {
-        // Load page import on demand. Show 404 page if fails
-        const resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
-        Polymer.importHref(
-            resolvedPageUrl,
-            null,
-            this._showPage404.bind(this),
-            true);
-      }
-
-      _showPage404() {
-        this.page = 'view404';
-      }
-    }
-
-    window.customElements.define(MyApp.is, MyApp);
-  </script>
+        window.customElements.define(MyApp.is, MyApp);
+    </script>
 </dom-module>
