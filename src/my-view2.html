@@ -31,6 +31,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       longitude="-103.59179687498357" zoom="3"></mapbox-gl>
     <geojson-source cluster cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_parks_and_protected_lands_point.geojson"></geojson-source>
     <mapbox-heatmap-layer map="[[map]]" layer-id="heatmap" source="geojsonsrc" radius="80" opacity="0.2" levels="[[levels]]"></mapbox-heatmap-layer>
+    <mapbox-layer map="[[map]]" layer-id="layer_points" rendering-type="circle" source-data="https://docs.mapbox.com/help/data/stations.geojson" color="#009688" opacity="0.7"></mapbox-layer>
   </template>
     <script>
         class MyView2 extends Polymer.Element {
@@ -68,6 +69,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     'count': 10,
                     'color': '#F44336'
                 }]
+
             }
         }
 
