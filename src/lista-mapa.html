@@ -1,0 +1,84 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+
+<dom-module id="lista-mapa">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block
+            }
+        </style>
+       <div class="card">
+            <ul>
+                    <li>Alvaro Obregon</li>
+                    <li>Azcapozalco</li>
+                    <li>Benito Juarez</li>
+                    <li>Coyoacan</li>
+                    <li>Cuajimalpa de Morelos</li>
+                    <li>Cuauhtemoc</li>
+                    <li>Gustavo A. Madero</li>
+                    <li>Iztacalco</li>
+                    <li>Magdalena Contreras</li>
+                    <li>Miguel Hidalgo</li>
+                    <li>Milpa Alta</li>
+                    <li>Tlahuac</li>
+                    <li>Tlalpan</li>
+                    <li>Venustiano Carranza</li>
+                    <li>Xochimilco</li>
+            </ul>
+        </div>
+        <slot></slot>
+
+    </template>
+
+    <script>
+        /**
+         * `lista-mapa` Description
+         *
+         * @summary ShortDescription.
+         * @customElement
+         * @polymer
+         * @extends {Polymer.Element}
+         */
+        class ListaMapa extends Polymer.Element {
+            /**
+             * String providing the tag name to register the element under.
+             */
+            static get is() {
+                return 'lista-mapa';
+            }
+
+            /**
+             * Object describing property-related metadata used by Polymer features
+             */
+            static get properties() {
+                return {
+
+                };
+            }
+
+            /**
+             * Instance of the element is created/upgraded. Use: initializing state,
+             * set up event listeners, create shadow dom.
+             * @constructor
+             */
+            constructor() {
+                super();
+            }
+
+            /**
+             * Use for one-time configuration of your component after local DOM is initialized. 
+             */
+            ready() {
+                super.ready();
+
+                Polymer.RenderStatus.afterNextRender(this, function() {
+
+                });
+            }
+
+        }
+
+        window.customElements.define(ListaMapa.is, ListaMapa);
+    </script>
+</dom-module>
