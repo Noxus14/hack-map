@@ -1,0 +1,197 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.20305556,19.3586111 ]
+    },
+    "properties": {
+    "Alcaladia":"ALVARO OBREGON ",
+    "No":1400,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.18333333,19.4827778 ]
+    },
+    "properties": {
+    "Alcaladia":"AZCAPOTZALCO",
+    "No":987,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.15833333,19.4016667 ]
+    },
+    "properties": {
+    "Alcaladia":"BENITO JUAREZ ",
+    "No":1903,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.17083333,19.3613889 ]
+    },
+    "properties": {
+    "Alcaladia":"COYOACAN ",
+    "No":1331,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.28472222,19.3744444 ]
+    },
+    "properties": {
+    "Alcaladia":"CUAJIMALPA ",
+    "No":282,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.14472222,19.4430556 ]
+    },
+    "properties": {
+    "Alcaladia":"CUAUHTEMOC ",
+    "No":3275,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.11277778,19.4822222 ]
+    },
+    "properties": {
+    "Alcaladia":"GUSTAVO A. MADERO ",
+    "No":2016,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.09861111,19.395 ]
+    },
+    "properties": {
+    "Alcaladia":"IZTACALCO",
+    "No":931,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.09305556,19.3583333 ]
+    },
+    "properties": {
+    "Alcaladia":"IZTAPALAPA ",
+    "No":3085,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.21388889,19.3333333 ]
+    },
+    "properties": {
+    "Alcaladia":"MAGDALENA CONTRERAS ",
+    "No":309,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.19111111,19.4066667 ]
+    },
+    "properties": {
+    "Alcaladia":"MIGUEL HIDALGO",
+    "No":1347,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.02305556,19.1922222 ]
+    },
+    "properties": {
+    "Alcaladia":"MILPA ALTA",
+    "No":124,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.00277778,19.2744444 ]
+    },
+    "properties": {
+    "Alcaladia":"TLAHUAC ",
+    "No":425,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.225,19.3083333 ]
+    },
+    "properties": {
+    "Alcaladia":"TLALPAN",
+    "No":1220,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.11388889,19.4166667 ]
+    },
+    "properties": {
+    "Alcaladia":"VENUSTIANO CARRANZA ",
+    "No":1269,
+    "marker-symbol":"town-hall"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -99.13888889,19.275 ]
+    },
+    "properties": {
+    "Alcaladia":"XOCHIMILCO",
+    "No":599,
+    "marker-symbol":"town-hall"
+    }
+  }
+]
+}
