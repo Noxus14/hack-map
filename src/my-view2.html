@@ -42,15 +42,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <geojson-source cluster=true cluster-max-zoom="10" cluster-radius="10" map="[[map]]" source-id="geojsonsrcmetro" source-url="geojson/estaciones_metro.geojson"></geojson-source>
     <geojson-source map="[[map]]" source-id="geojsonsrcmetro2" source-url="geojson/estaciones_metro.geojson"></geojson-source>
     <geojson-source map="[[map]]" source-id="geojsonLineas" source-url="geojson/lineas_metro_cdmx.geojson"></geojson-source>
-
+    
+    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer" rendering-type="fill" color="rgb(100,100,100)" opacity="0.35"></mapbox-layer>
+    
     <mapbox-layer map="[[map]]" source="geojsonLineas" layer-id="lineametro" rendering-type="line" color="rgb(255,164,32)" line-width="5"></mapbox-layer>
 
     <mapbox-heatmap-layer map="[[map]]" layer-id="heatmap" source="geojsonsrcmetro" radius="25" opacity="0.8" levels="[[levels]]"></mapbox-heatmap-layer>
     <mapbox-layer map="[[map]]" source="geojsonsrcmetro2" layer-id="pointsmetro" rendering-type="circle" radius="7" color="rgb(255,0,0)"></mapbox-layer>
 
     <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer-line" rendering-type="line" color="rgb(0,0,0)" line-width="2"></mapbox-layer>
-    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer" rendering-type="fill" color="rgb(100,100,100)" opacity="0.35"></mapbox-layer>
-    
+  
  
    <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="rgb(0,0,255)" events-to-watch="mousemove" 
         on-mapbox-layer-mousemove="onMousemove">
