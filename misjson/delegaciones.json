@@ -1,12 +1,68 @@
 {
-   "delegaciones": [
-       {
-           "delegaciones": "Clark",
-           "numdelitos": "Kent"
-       },
-       {
-           "delegaciones": "Bruce",
-           "numdelitos": "Wayne"
-       }
-   ]
+    "delegaciones": [
+  {
+    "delegacion": "ALVARO OBREGON",
+    "numdelitos": 1400
+  },
+  {
+    "delegacion": "AZCAPOTZALCO",
+    "numdelitos": 987
+  },
+  {
+    "delegacion": "BENITO JUAREZ",
+    "numdelitos": 1903
+  },
+  {
+    "delegacion": "COYOACAN",
+    "numdelitos": 1331
+  },
+  {
+    "delegacion": "CUAJIMALPA",
+    "numdelitos": 282
+  },
+  {
+    "delegacion": "CUAUHTEMOC",
+    "numdelitos": 3275
+  },
+  {
+    "delegacion": "GUSTAVO A. MADERO",
+    "numdelitos": 2016
+  },
+  {
+    "delegacion": "IZTACALCO",
+    "numdelitos": 931
+  },
+  {
+    "delegacion": "IZTAPALAPA",
+    "numdelitos": 3085
+  },
+  {
+    "delegacion": "MAGDALENA CONTRERAS",
+    "numdelitos": 309
+  },
+  {
+    "delegacion": "MIGUEL HIDALGO",
+    "numdelitos": 1347
+  },
+  {
+    "delegacion": "MILPA ALTA",
+    "numdelitos": 124
+  },
+  {
+    "delegacion": "TLAHUAC",
+    "numdelitos": 425
+  },
+  {
+    "delegacion": "TLALPAN",
+    "numdelitos": 1220
+  },
+  {
+    "delegacion": "VENUSTIANO CARRANZA",
+    "numdelitos": 1269
+  },
+  {
+    "delegacion": "XOCHIMILCO",
+    "numdelitos": 599
+  }
+]
 }
