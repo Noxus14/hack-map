@@ -10,10 +10,10 @@
                 display: block
             }
         </style>
-     <div> Numero de delitos reportados por delegacion: </div>
+     <div> <strong>Numero de delitos reportados por delegacion: </strong></div>
      <template is="dom-repeat" items="{{delegaciones}}">
          
-         <div><span>[[item.delegacion]]</span> &nbsp; &nbsp; <span>[[item.numdelitos]]</span></div>
+         <div><span>[[item.delegacion]]</span> &nbsp; &nbsp; <strong><span>[[item.numdelitos]]</span></strong></div>
          
      </template>
     <iron-ajax url="/misjson/delegaciones.json" auto on-iron-ajax-response="_handleJson" handle-as="json"></iron-ajax>
