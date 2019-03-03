@@ -32,9 +32,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     </style>
-    <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="40.66995747013945"
-      longitude="-103.59179687498357" zoom="3">
+    <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="19.66995747013945"
+      longitude="-99.59179687498357" zoom="6">
     </mapbox-gl>
+    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer-line" rendering-type="line" color="rgb(0,0,0)" line-width="2"></mapbox-layer>
+    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer" rendering-type="fill" color="rgb(100,100,100)" opacity="0.35"></mapbox-layer>
+    
    <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="rgb(0,0,255)" events-to-watch="mousemove" 
         on-mapbox-layer-mousemove="onMousemove">
         <mapbox-gl-popup close-button close-on-click
@@ -50,7 +53,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </mapbox-layer>
     <!-- Load GeoJSON data via `source-url` or `source-data` -->
     <geojson-source cluster=true cluster-max-zoom="10" cluster-radius="10" map="[[map]]" source-id="geojsonsrc" source-url="geojson/alcaldiasv2.geojson"></geojson-source>
-
+    <geojson-source map="[[map]]" source-id="geojsonsrcmexico" source-url="geojson/cdMexico.geojson"></geojson-source>
     
 
 
