@@ -12,6 +12,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/mapbox-gl/mapbox-gl.html">
 <link rel="import" href="../bower_components/mapbox-gl/mapbox-heatmap-layer.html">
 <link rel="import" href="../bower_components/mapbox-gl/geojson-source.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-layer.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-gl-control.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-gl-popup.html">
+<link rel="import" href="../bower_components/mapbox-gl/mapbox-gl-marker.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view2">
@@ -28,10 +32,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
     <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="40.66995747013945"
-      longitude="-103.59179687498357" zoom="3"></mapbox-gl>
-    <geojson-source cluster cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_parks_and_protected_lands_point.geojson"></geojson-source>
-    <mapbox-heatmap-layer map="[[map]]" layer-id="heatmap" source="geojsonsrc" radius="80" opacity="0.2" levels="[[levels]]"></mapbox-heatmap-layer>
+      longitude="-103.59179687498357" zoom="3">
+    </mapbox-gl>
+   <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="#009688" events-to-watch="mousemove" 
+        on-mapbox-layer-mousemove="onMousemove">
+        <mapbox-gl-popup close-button close-on-click
+          id="popup"
+          opened="{{opened}}"
+          latitude="[[latitude]]" 
+          longitude="[[longitude]]"
+        >
+          <div slot="popup-content">
+            <p>[[description]]</p>
+          </div>
+        </mapbox-gl-popup>
+      </mapbox-layer>
+    <!-- Load GeoJSON data via `source-url` or `source-data` -->
+    <geojson-source cluster=true cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="geojson/stations.geojson"></geojson-source>
+
+    
+
+
   </template>
+
     <script>
         class MyView2 extends Polymer.Element {
             static get is() {
@@ -46,6 +69,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     levels: {
                         type: Array
                     },
+                    description: String,
+                    longitude: Number,
+                    latitude: Number,
+                    opened: {
+                        type: Boolean,
+                        value: false
+                    }
                 }
             }
 
@@ -68,7 +98,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     'count': 10,
                     'color': '#F44336'
                 }]
+
             }
+
+            onMousemove(e, details) {
+                let description = details.features[0].properties.description;
+                this.description = ''
+                if (description) {
+                    var {
+                        lngLat: {
+                            lat,
+                            lng
+                        }
+                    } = details;
+                    this.latitude = lat;
+                    this.longitude = lng;
+                    this.description = `${details.features[0].properties.description}`;
+                    this.opened = true;
+                }
+
+            };
+
+
         }
 
         window.customElements.define(MyView2.is, MyView2);
