@@ -1,0 +1,79 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<! -- import template repeater -->
+<link rel="import" href="components/polymer/lib/elements/dom-repeat.html">
+
+<dom-module id="repetir-lista">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block
+            }
+        </style>
+     <div> Employee list: </div>
+     <template is="dom-repeat" items="{{employees}}">
+         <div># [[index]]</div>
+         <div>First name: <span>[[item.first]]</span></div>
+         <div>Last name: <span>[[item.last]]</span></div>
+     </template>
+    </template>
+
+    <script>
+        /**
+         * `Repetir-lista` repetidor de dom
+         *
+         * @summary repetidordedom.
+         * @customElement
+         * @polymer
+         * @extends {Polymer.Element}
+         */
+        class RepetirLista extends Polymer.Element {
+            /**
+             * String providing the tag name to register the element under.
+             */
+            static get is() {
+                return 'repetir-lista';
+            }
+
+            /**
+             * Object describing property-related metadata used by Polymer features
+             */
+            static get properties() {
+                return {
+                    employees: {
+                        type: Array,
+                        value: [{
+                            first: 'Bob',
+                            last: 'Smith'
+                        }, {
+                            first: 'Sally',
+                            last: 'Johnson'
+                        }]
+                    }
+                }
+            }
+
+
+            /**
+             * Instance of the element is created/upgraded. Use: initializing state,
+             * set up event listeners, create shadow dom.
+             * @constructor
+             */
+            constructor() {
+                super();
+            }
+
+            /**
+             * Use for one-time configuration of your component after local DOM is initialized. 
+             */
+            ready() {
+                super.ready();
+
+                Polymer.RenderStatus.afterNextRender(this, function() {
+
+                });
+            }
+        }
+
+        window.customElements.define(RepetirLista.is, RepetirLista);
+    </script>
+</dom-module>
