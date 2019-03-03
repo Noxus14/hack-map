@@ -30,6 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         height: 400px;
         width: 100%;
       }
+
     </style>
     <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="40.66995747013945"
       longitude="-103.59179687498357" zoom="3">
@@ -42,13 +43,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           latitude="[[latitude]]" 
           longitude="[[longitude]]"
         >
-          <div slot="popup-content">
+          <div  slot="popup-content" style="background-color: rgb(71, 82, 71); padding: 15px 10px; border-radius: 10px;">
             <p>[[description]]</p>
           </div>
         </mapbox-gl-popup>
       </mapbox-layer>
     <!-- Load GeoJSON data via `source-url` or `source-data` -->
-    <geojson-source cluster=true cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="geojson/stations.geojson"></geojson-source>
+    <geojson-source cluster=true cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="geojson/alcaldiasv2.geojson"></geojson-source>
 
     
 
@@ -102,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
 
             onMousemove(e, details) {
-                let description = details.features[0].properties.description;
+                let description = details.features[0].properties.Alcaladia;
                 this.description = ''
                 if (description) {
                     var {
@@ -113,7 +114,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     } = details;
                     this.latitude = lat;
                     this.longitude = lng;
-                    this.description = `${details.features[0].properties.description}`;
+                    this.description = `Alcaladia: ${details.features[0].properties.Alcaladia}  |  ` +
+                        `No: ${details.features[0].properties.No}`;
                     this.opened = true;
                 }
 

@@ -9,7 +9,7 @@
     },
     "properties": {
     "Alcaladia":"ALVARO OBREGON ",
-    "No.":1400,
+    "No":1400,
     "marker-symbol":"town-hall"
     }
   },
@@ -21,7 +21,7 @@
     },
     "properties": {
     "Alcaladia":"AZCAPOTZALCO",
-    "No.":987,
+    "No":987,
     "marker-symbol":"town-hall"
     }
   },
@@ -33,7 +33,7 @@
     },
     "properties": {
     "Alcaladia":"BENITO JUAREZ ",
-    "No.":1903,
+    "No":1903,
     "marker-symbol":"town-hall"
     }
   },
@@ -45,7 +45,7 @@
     },
     "properties": {
     "Alcaladia":"COYOACAN ",
-    "No.":1331,
+    "No":1331,
     "marker-symbol":"town-hall"
     }
   },
@@ -57,7 +57,7 @@
     },
     "properties": {
     "Alcaladia":"CUAJIMALPA ",
-    "No.":282,
+    "No":282,
     "marker-symbol":"town-hall"
     }
   },
@@ -69,7 +69,7 @@
     },
     "properties": {
     "Alcaladia":"CUAUHTEMOC ",
-    "No.":3275,
+    "No":3275,
     "marker-symbol":"town-hall"
     }
   },
@@ -81,7 +81,7 @@
     },
     "properties": {
     "Alcaladia":"GUSTAVO A. MADERO ",
-    "No.":2016,
+    "No":2016,
     "marker-symbol":"town-hall"
     }
   },
@@ -93,7 +93,7 @@
     },
     "properties": {
     "Alcaladia":"IZTACALCO",
-    "No.":931,
+    "No":931,
     "marker-symbol":"town-hall"
     }
   },
@@ -105,7 +105,7 @@
     },
     "properties": {
     "Alcaladia":"IZTAPALAPA ",
-    "No.":3085,
+    "No":3085,
     "marker-symbol":"town-hall"
     }
   },
@@ -117,7 +117,7 @@
     },
     "properties": {
     "Alcaladia":"MAGDALENA CONTRERAS ",
-    "No.":309,
+    "No":309,
     "marker-symbol":"town-hall"
     }
   },
@@ -129,7 +129,7 @@
     },
     "properties": {
     "Alcaladia":"MIGUEL HIDALGO",
-    "No.":1347,
+    "No":1347,
     "marker-symbol":"town-hall"
     }
   },
@@ -141,7 +141,7 @@
     },
     "properties": {
     "Alcaladia":"MILPA ALTA",
-    "No.":124,
+    "No":124,
     "marker-symbol":"town-hall"
     }
   },
@@ -153,7 +153,7 @@
     },
     "properties": {
     "Alcaladia":"TLAHUAC ",
-    "No.":425,
+    "No":425,
     "marker-symbol":"town-hall"
     }
   },
@@ -165,7 +165,7 @@
     },
     "properties": {
     "Alcaladia":"TLALPAN",
-    "No.":1220,
+    "No":1220,
     "marker-symbol":"town-hall"
     }
   },
@@ -177,7 +177,7 @@
     },
     "properties": {
     "Alcaladia":"VENUSTIANO CARRANZA ",
-    "No.":1269,
+    "No":1269,
     "marker-symbol":"town-hall"
     }
   },
@@ -189,7 +189,7 @@
     },
     "properties": {
     "Alcaladia":"XOCHIMILCO",
-    "No.":599,
+    "No":599,
     "marker-symbol":"town-hall"
     }
   }
