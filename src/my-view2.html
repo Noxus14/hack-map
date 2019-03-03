@@ -35,7 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="40.66995747013945"
       longitude="-103.59179687498357" zoom="3">
     </mapbox-gl>
-   <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="#009688" events-to-watch="mousemove" 
+   <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="rgb(0,0,255)" events-to-watch="mousemove" 
         on-mapbox-layer-mousemove="onMousemove">
         <mapbox-gl-popup close-button close-on-click
           id="popup"
@@ -49,7 +49,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </mapbox-gl-popup>
       </mapbox-layer>
     <!-- Load GeoJSON data via `source-url` or `source-data` -->
-    <geojson-source cluster=true cluster-max-zoom="15" cluster-radius="20" map="[[map]]" source-id="geojsonsrc" source-url="geojson/alcaldiasv2.geojson"></geojson-source>
+    <geojson-source cluster=true cluster-max-zoom="10" cluster-radius="10" map="[[map]]" source-id="geojsonsrc" source-url="geojson/alcaldiasv2.geojson"></geojson-source>
 
     
 
