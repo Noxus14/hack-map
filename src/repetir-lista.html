@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <! -- import template repeater -->
-<link rel="import" href="components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="repetir-lista">
     <template>
@@ -15,6 +16,7 @@
          <div><strong>Delegacion: </strong> <span>[[item.delegacion]]</span></div>
          <div><strong>Numero de delitos reportados: </strong> <span>[[item.numdelitos]]</span></div>
      </template>
+    <iron-ajax url="/misjson/delegaciones.json" auto on-iron-ajax-response="_handleJson" handle-as="json"></iron-ajax>
     </template>
 
     <script>
@@ -41,13 +43,7 @@
                 return {
                     delegaciones: {
                         type: Array,
-                        value: [{
-                            delegacion: 'Bob',
-                            numdelitos: 'Smith'
-                        }, {
-                            delegacion: 'Sally',
-                            numdelitos: 'Johnson'
-                        }]
+                        value: []
                     }
                 }
             }
@@ -71,6 +67,10 @@
                 Polymer.RenderStatus.afterNextRender(this, function() {
 
                 });
+            }
+
+            _handleJson(response, hola) {
+                this.delegaciones = response.detail.xhr.response.delegaciones || [];
             }
         }
 
