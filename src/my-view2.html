@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/mapbox-gl/mapbox-gl.html">
 <link rel="import" href="../bower_components/mapbox-gl/mapbox-heatmap-layer.html">
@@ -32,26 +22,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     </style>
+    <!-- Se carga el mapa principal de mapbox-->
     <mapbox-gl interactive access-token="[[key]]" map="{{map}}" map-style-url="mapbox://styles/mapbox/dark-v9" latitude="19.66995747013945"
       longitude="-99.59179687498357" zoom="6">
     </mapbox-gl>
 
-    <!-- Load GeoJSON data via `source-url` or `source-data` -->
+    <!-- Se carga la información de datos de tipo GeoJson-->
     <geojson-source cluster=true cluster-max-zoom="10" cluster-radius="10" map="[[map]]" source-id="geojsonsrc" source-url="geojson/alcaldiasv2.geojson"></geojson-source>
     <geojson-source map="[[map]]" source-id="geojsonsrcmexico" source-url="geojson/cdMexico.geojson"></geojson-source>
     <geojson-source cluster=true cluster-max-zoom="10" cluster-radius="10" map="[[map]]" source-id="geojsonsrcmetro" source-url="geojson/estaciones_metro.geojson"></geojson-source>
     <geojson-source map="[[map]]" source-id="geojsonsrcmetro2" source-url="geojson/estaciones_metro.geojson"></geojson-source>
     <geojson-source map="[[map]]" source-id="geojsonLineas" source-url="geojson/lineas_metro_cdmx.geojson"></geojson-source>
+    
 
+    <!--Se crea la capa del polygono de la Ciudad de México-->
+    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer" rendering-type="fill" color="rgb(100,100,100)" opacity="0.35"></mapbox-layer>
+    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer-line" rendering-type="line" color="rgb(0,0,0)" line-width="2"></mapbox-layer>
+  
+ 
+    <!--Se crea la capa de las lineas del metro-->
     <mapbox-layer map="[[map]]" source="geojsonLineas" layer-id="lineametro" rendering-type="line" color="rgb(255,164,32)" line-width="5"></mapbox-layer>
 
+    <!--Se crea la capa de densidad (mapas de calor)-->
     <mapbox-heatmap-layer map="[[map]]" layer-id="heatmap" source="geojsonsrcmetro" radius="25" opacity="0.8" levels="[[levels]]"></mapbox-heatmap-layer>
+    
+    <!--Se crea la capa de puntos del metro-->
     <mapbox-layer map="[[map]]" source="geojsonsrcmetro2" layer-id="pointsmetro" rendering-type="circle" radius="7" color="rgb(255,0,0)"></mapbox-layer>
 
-    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer-line" rendering-type="line" color="rgb(0,0,0)" line-width="2"></mapbox-layer>
-    <mapbox-layer map="[[map]]" source="geojsonsrcmexico" layer-id="polygon-layer" rendering-type="fill" color="rgb(100,100,100)" opacity="0.35"></mapbox-layer>
-    
- 
+    <!--Se crea la capa de las alcaldias -->
    <mapbox-layer map="[[map]]" source="geojsonsrc" layer-id="layer_points" rendering-type="circle"  color="rgb(0,0,255)" events-to-watch="mousemove" 
         on-mapbox-layer-mousemove="onMousemove">
         <mapbox-gl-popup close-button close-on-click
@@ -128,22 +126,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     this.description = `Alcaldia: ${details.features[0].properties.Alcaladia}  |  ` +
                         `No de delitos reportados: ${details.features[0].properties.No}`;
                     this.opened = true;
-                } else {
-                    let description = details.features[0].properties.Estaciones_del_Metro;
-                    this.description = '';
-                    if (description) {
-                        var {
-                            lngLat: {
-                                lat,
-                                lng
-                            }
-                        } = details;
-                        this.latitude = lat;
-                        this.longitude = lng;
-                        this.description = `Estación del metro: ${details.features[0].properties.Estaciones_del_Metro}  |  ` +
-                            `Delito: ${details.features[0].properties.Delito}`;
-                        this.opened = true;
-                    }
                 }
 
             };
