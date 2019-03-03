@@ -9,11 +9,11 @@
                 display: block
             }
         </style>
-     <div> Employee list: </div>
-     <template is="dom-repeat" items="{{employees}}">
-         <div># [[index]]</div>
-         <div>First name: <span>[[item.first]]</span></div>
-         <div>Last name: <span>[[item.last]]</span></div>
+     <div> Numero de delitos reportados por delegacion: </div>
+     <template is="dom-repeat" items="{{delegaciones}}">
+         
+         <div><strong>Delegacion: </strong> <span>[[item.delegacion]]</span></div>
+         <div><strong>Numero de delitos reportados: </strong> <span>[[item.numdelitos]]</span></div>
      </template>
     </template>
 
@@ -39,14 +39,14 @@
              */
             static get properties() {
                 return {
-                    employees: {
+                    delegaciones: {
                         type: Array,
                         value: [{
-                            first: 'Bob',
-                            last: 'Smith'
+                            delegacion: 'Bob',
+                            numdelitos: 'Smith'
                         }, {
-                            first: 'Sally',
-                            last: 'Johnson'
+                            delegacion: 'Sally',
+                            numdelitos: 'Johnson'
                         }]
                     }
                 }
